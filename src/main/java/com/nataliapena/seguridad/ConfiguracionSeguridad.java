@@ -55,7 +55,7 @@ public class ConfiguracionSeguridad {
 	    @Bean
 	    public CorsConfigurationSource corsConfigurationSource() {
 	        CorsConfiguration config = new CorsConfiguration();
-	        config.setAllowedOrigins(List.of("http://truequemundos.netlify.app"));
+	        config.setAllowedOrigins(List.of("https://truequemundos.netlify.app"));
 	        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 	        config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
 	        config.setAllowCredentials(true);
