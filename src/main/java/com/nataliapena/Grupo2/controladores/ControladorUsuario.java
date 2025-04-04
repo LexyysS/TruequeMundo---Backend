@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestHeader;
 
 import com.nataliapena.Grupo2.Dto.ProductoDTO;
 import com.nataliapena.Grupo2.Dto.RegistroDTO;
@@ -38,20 +37,6 @@ public class ControladorUsuario {
 	
 	@Autowired
 	JwtUtil jwtUtil;
-
-	@GetMapping("/verificar")
-	public ResponseEntity<?> verificarToken(@RequestHeader("Authorization") String token) {
-	    try {
-	        String jwt = token.replace("Bearer ", "");
-	        if (jwtUtil.validateToken(jwt)) {
-	            return ResponseEntity.ok().build();
-	        } else {
-	            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-	        }
-	    } catch (Exception e) {
-	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-	    }
-	}
 
 	@GetMapping("/usuario/{id}")
 	public ResponseEntity<Usuario> ObtenerUsuario(@PathVariable Long id) {
@@ -143,4 +128,5 @@ public class ControladorUsuario {
 	}
 
 }
+
 
