@@ -17,12 +17,16 @@ public class TruequeDTO {
 	private String estadoNombre;
 	private Date fechaCreacion;
 	private Long trueque_id;
+	private Long usuarioPublicadorId;
+	private Long usuarioInteresadoId;
 
 	public TruequeDTO(Trueque trueque) {
 		this.usuarioInteresadoNombre = trueque.getUsuarioInteresado().getNombre();
 		this.usuarioPublicadorNombre = trueque.getUsuarioPublicador().getNombre();
 		this.productoInteresadoNombre = trueque.getProductoInteresado().getTitulo();
 		this.productoPublicadorNombre = trueque.getProductoPublicador().getTitulo();
+		this.usuarioPublicadorId = trueque.getUsuarioPublicador().getId();
+		this.usuarioInteresadoId= trueque.getUsuarioInteresado().getId();
 		this.trueque_id = trueque.getId();
 		this.estadoNombre = trueque.getEstado() != null 
 	            ? trueque.getEstado().getNombre() 
@@ -38,6 +42,34 @@ public class TruequeDTO {
 	
 	
 	
+
+	public Long getUsuarioPublicadorId() {
+		return usuarioPublicadorId;
+	}
+
+
+
+
+	public void setUsuarioPublicadorId(Long usuarioPublicadorId) {
+		this.usuarioPublicadorId = usuarioPublicadorId;
+	}
+
+
+
+
+	public Long getUsuarioInteresadoId() {
+		return usuarioInteresadoId;
+	}
+
+
+
+
+	public void setUsuarioInteresadoId(Long usuarioInteresadoId) {
+		this.usuarioInteresadoId = usuarioInteresadoId;
+	}
+
+
+
 
 	public Long getTrueque_id() {
 		return trueque_id;
