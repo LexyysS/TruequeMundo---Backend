@@ -39,7 +39,7 @@ public class ConfiguracionSeguridad {
 	            .csrf(csrf -> csrf.disable())
 	            .cors(cors -> cors.configurationSource(corsConfigurationSource())) 
 	            .authorizeHttpRequests(auth -> auth
-                  
+					.requestMatchers("/ws/**", "/app/**", "/chat/**").permitAll()
 	                .requestMatchers("/api/login", "/api/registro").permitAll()
 	                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 	                .requestMatchers("/api/productos", "/api/productos/recientes").permitAll()
@@ -57,7 +57,8 @@ public class ConfiguracionSeguridad {
 	        CorsConfiguration config = new CorsConfiguration();
 	        config.setAllowedOrigins(List.of("http://truequemundos.netlify.app"));
 	        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-	        config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+	        config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Upgrade", "Connection", "Sec-WebSocket-Key", "Sec-WebSocket-Version"));
+			config.setExposedHeaders(List.of("Sec-WebSocket-Accept"));
 	        config.setAllowCredentials(true);
 
 	        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
