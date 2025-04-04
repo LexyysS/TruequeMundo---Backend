@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,7 +28,6 @@ import com.nataliapena.seguridad.JwtUtil;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
-
 @RestController
 @RequestMapping("/api")
 public class ControladorUsuario {
@@ -39,7 +37,7 @@ public class ControladorUsuario {
 	
 	@Autowired
 	JwtUtil jwtUtil;
-	
+
 	@GetMapping("/verificar")
 	public ResponseEntity<?> verificarToken(@RequestHeader("Authorization") String token) {
 	    try {
@@ -144,3 +142,4 @@ public class ControladorUsuario {
 	}
 
 }
+
